@@ -24,7 +24,7 @@ namespace Hackathon
 
 
             //If you have Head First C#, this syntax is thorougly explained on page 699.
-            //It is returning an enumerable squence of enumerbale sequence (so the first
+            //It is returning an enumerable squence of enumerbale sequences (so the first
             //sequence is the lowest number segID with sales over 100. The next group is
             //the next lowest SegID with sales over 100, etc.
             var gropuedRows =
