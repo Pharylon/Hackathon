@@ -2,10 +2,13 @@
 <html lang="en">
     <head>
         <title>Charlotte Hackathon - Team Dubmen</title>
-        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.0.0.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap-2.0.0.js")"></script>
-
         <link href="@Url.Content("~/Content/css/bootstrap.min.css")" rel="stylesheet" media="screen">
+        @RenderSection("styles", required: false)
+
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.0.0.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/d3.v3.js")"></script>
+        @RenderSection("scripts", required: false)
     </head>
     <body>
         <div class="container-fluid">
@@ -14,7 +17,14 @@
             </div>
             <div class="span10">
                 @RenderBody()
-                <p>Copyright 2012 Dubmen Designs</p>
+                <p>
+                    <!--[if lte IE 8]><span style="filter: FlipH; -ms-filter: "FlipH"; display: inline-block;"><![endif]-->
+                    <span style="-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); display: inline-block;">
+                        &copy;
+                    </span>
+                    <!--[if lte IE 8]></span><![endif]--> 
+                    @DateTime.Now.Year Dubmen Designs
+                </p>
             </div>
         </div>
     </body>

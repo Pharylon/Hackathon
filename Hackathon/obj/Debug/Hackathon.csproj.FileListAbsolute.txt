@@ -4,3 +4,10 @@ C:\Users\Zach\Documents\Visual Studio 2012\Projects\Hackathon\Hackathon\bin\Debu
 C:\Users\Zach\Documents\Visual Studio 2012\Projects\Hackathon\Hackathon\bin\Debug\Hackathon.pdb
 C:\Users\Zach\Documents\Visual Studio 2012\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.dll
 C:\Users\Zach\Documents\Visual Studio 2012\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
+C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\HarrisTeeterDB.sdf
+C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\Hackathon.dll.config
+C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\Hackathon.dll
+C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\Hackathon.pdb
+C:\Users\Patrick\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.csprojResolveAssemblyReference.cache
+C:\Users\Patrick\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.dll
+C:\Users\Patrick\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
