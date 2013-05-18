@@ -162,7 +162,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hackathon\Hackathon.Domain.csproj">
+    <ProjectReference Include="..\Hackathon.Domain\Hackathon.Domain.csproj">
       <Project>{7bb6eed5-0ecd-4e82-93f8-b6141c7da1f1}</Project>
       <Name>Hackathon.Domain</Name>
     </ProjectReference>
