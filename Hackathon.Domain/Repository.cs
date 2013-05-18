@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate.Linq;
 
 namespace Hackathon.Domain
 {
@@ -22,6 +23,10 @@ namespace Hackathon.Domain
         public T Get<T>(object id)
         {
             return _Session.Get<T>(id);
+        }
+        public IQueryable<T> Get<T>()
+        {
+            return _Session.Query<T>();
         }
         private ISessionFactory _NhibernateSessionFactory;
         public ISessionFactory NHibernateSessionFactory

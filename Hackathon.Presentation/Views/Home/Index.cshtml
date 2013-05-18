@@ -77,11 +77,11 @@
     d3.json("Home/data", function (error, data) {
 
         data.forEach(function (d) {
-            d.AtomicMass = +d.AtomicMass;
+            d.Item2 = +d.Item2;
         });
 
-        x.domain(data.map(function (d) { return d.Symbol; }));
-        y.domain([0, d3.max(data, function (d) { return d.AtomicMass; })]);
+        x.domain(data.map(function (d) { return d.Item1; }));
+        y.domain([0, d3.max(data, function (d) { return d.Item2; })]);
 
         svg.append("g")
             .attr("class", "x axis")
@@ -102,10 +102,10 @@
             .data(data)
           .enter().append("rect")
             .attr("class", "bar")
-            .attr("x", function (d) { return x(d.Symbol); })
+            .attr("x", function (d) { return x(d.Item1); })
             .attr("width", x.rangeBand())
-            .attr("y", function (d) { return y(d.AtomicMass); })
-            .attr("height", function (d) { return height - y(d.AtomicMass); });
+            .attr("y", function (d) { return y(d.Item2); })
+            .attr("height", function (d) { return height - y(d.Item2); });
 
         d3.select("input").on("change", change);
 
@@ -118,9 +118,9 @@
 
             // Copy-on-write since tweens are evaluated after a delay.
             var x0 = x.domain(data.sort(this.checked
-                ? function (a, b) { return b.AtomicMass - a.AtomicMass; }
-                : function (a, b) { return d3.ascending(a.Symbol, b.Symbol); })
-                .map(function (d) { return d.Symbol; }))
+                ? function (a, b) { return b.Item2 - a.Item2; }
+                : function (a, b) { return d3.ascending(a.Item1, b.Item1); })
+                .map(function (d) { return d.Item1; }))
                 .copy();
 
             var transition = svg.transition().duration(750),
@@ -128,7 +128,7 @@
 
             transition.selectAll(".bar")
                 .delay(delay)
-                .attr("x", function (d) { return x0(d.Symbol); });
+                .attr("x", function (d) { return x0(d.Item1); });
 
             transition.select(".x.axis")
                 .call(xAxis)
