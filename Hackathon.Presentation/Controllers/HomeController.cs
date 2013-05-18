@@ -4,6 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Configuration;
+using System.Data.SqlClient;
+using Hackathon.Domain;
 
 namespace Hackathon.Presentation.Controllers
 {
@@ -25,6 +28,15 @@ namespace Hackathon.Presentation.Controllers
            List<Element> myElements = new List<Element>(){hydrogen, helium, lithium};
             return Json(myElements, JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        public JsonResult DatabaseConnects()
+        {
+            //SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["hackathonConnectionString"].ToString());
+            Repository repository = new Repository();
+            Transaction aTransaction = repository.Get<Transaction>(2);
+            return Json(aTransaction, JsonRequestBehavior.AllowGet);
+        }
+
     }
         public class Element
         {

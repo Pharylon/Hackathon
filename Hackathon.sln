@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackathon", "Hackathon\Hackathon.csproj", "{7BB6EED5-0ECD-4E82-93F8-B6141C7DA1F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackathon.Domain", "Hackathon\Hackathon.Domain.csproj", "{7BB6EED5-0ECD-4E82-93F8-B6141C7DA1F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackathon.Presentation", "Hackathon.Presentation\Hackathon.Presentation.csproj", "{D5F212C3-D79A-42CF-B8E4-5531AC13B082}"
 EndProject
