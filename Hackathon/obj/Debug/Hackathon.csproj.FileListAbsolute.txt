@@ -11,3 +11,9 @@ C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\Hackathon.pdb
 C:\Users\Patrick\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.csprojResolveAssemblyReference.cache
 C:\Users\Patrick\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.dll
 C:\Users\Patrick\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
+C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\FluentNHibernate.dll
+C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\Iesi.Collections.dll
+C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\NHibernate.dll
+C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\FluentNHibernate.xml
+C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\Iesi.Collections.xml
+C:\Users\Patrick\Projects\Hackathon\Hackathon\bin\Debug\NHibernate.xml
