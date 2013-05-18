@@ -110,7 +110,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\HackathonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SalesPerHouseholdController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -126,7 +128,6 @@
     <Content Include="Content\img\glyphicons-halflings.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\img\Thumbs.db" />
-    <Content Include="Content\data\TableOfElements.json" />
     <None Include="Scripts\jquery-2.0.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -140,13 +141,15 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\jquery-2.0.0.min.map" />
-    <None Include="Views\Home\data.cshtml" />
-    <None Include="Views\Home\TableOfElements.cshtml" />
+    <Content Include="Views\SalesPerHousehold\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +163,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hackathon.Domain\Hackathon.Domain.csproj">
+      <Project>{7bb6eed5-0ecd-4e82-93f8-b6141c7da1f1}</Project>
+      <Name>Hackathon.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
