@@ -28,7 +28,7 @@ namespace Hackathon.Presentation.Controllers
         {
             List<Transaction> transactions = Repository.Get<Transaction>()
                 .Where(t => t.description=="Beer"||t.description=="Wine")
-                .Take(2000).ToList();
+                .Skip(2000).Take(2000).ToList();
             var purchasesByTime = new List<Tuple<decimal, decimal>>();
             purchasesByTime = transactions.Select(t => new Tuple<decimal, decimal>(t.sales, ((decimal)t.dateTime.Hour)+(((decimal)t.dateTime.Minute)/60)))
                 .OrderByDescending(pbt => pbt.Item2).ToList();
@@ -37,7 +37,7 @@ namespace Hackathon.Presentation.Controllers
         [HttpGet]
         public JsonResult GetFilteredData(string filters)
         {
-            List<test> theFilters = (List<test>)Newtonsoft.Json.JsonConvert.DeserializeObject(Request[filters], typeof(List<test>));
+            List<test> theFilters = (List<test>)Newtonsoft.Json.JsonConvert.DeserializeObject(Request["filters"], typeof(List<test>));
             var jsonSerialization = new JavaScriptSerializer();
 
             IQueryable<Transaction> transactions = Repository.Get<Transaction>();

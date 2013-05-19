@@ -128,7 +128,11 @@ var outlayData = [
   , { id: '3', text: '.3' }
   , { id: '4', text: '.4' }
   , { id: '5', text: '.5' }
-]
+  , { id: '6', text: '.6' }
+  , { id: '7', text: '.7' }
+  , { id: '8', text: '.8' }
+  
+];
  
 function InitializeFilterSelector()
 {
@@ -150,7 +154,7 @@ function InitializeFilterSelector()
                     SetChoiceSelector(descriptionData);
                 else if ($("#filter-selector").val() == 'income')
                     SetChoiceSelector(incomeData);
-                else if ($("#filter-selector").val() == 'outlaymin' || 'outlaymax')
+                else if ($("#filter-selector").val() == 'outlaymin' || $("#filter-selector").val() == 'outlaymax')
                     SetChoiceSelector(outlayData);
             });
     SetChoiceSelector(descriptionData);
