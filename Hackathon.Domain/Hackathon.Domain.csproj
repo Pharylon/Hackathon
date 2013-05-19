@@ -64,8 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
     <Compile Include="Mapping\NeighborhoodBorderMarkerMap.cs" />
     <Compile Include="NeighborhoodBorderMarker.cs" />
     <Compile Include="Mapping\TransactionMap.cs" />

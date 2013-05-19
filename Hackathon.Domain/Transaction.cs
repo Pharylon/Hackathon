@@ -12,5 +12,6 @@ namespace Hackathon.Domain
         public virtual decimal sales { get; set; }
         public virtual string description { get; set; }
         public virtual int Household { get; set; }
+        public virtual DateTime dateTime { get; set; }
     }
 }

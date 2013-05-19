@@ -74,6 +74,7 @@ namespace Hackathon.Tests
             Repository repository = new Repository();
             int orderNumber;
             int idOfNeighborhoodborderMarker = 0;
+            int totalRowCount = 0;
             List<NeighborhoodBorderMarker> neighborhoodBorderMarkers = new List<NeighborhoodBorderMarker>();    
             foreach (Neighborhood neighborhood in neighborhoods)
             {
@@ -82,14 +83,16 @@ namespace Hackathon.Tests
                 {
                     neighborhoodBorderMarkers.Add(new NeighborhoodBorderMarker()
                     {
+                        Id = idOfNeighborhoodborderMarker,
                         NeighborhoodId = neighborhood.id,
                         OrderId = orderNumber,
                         Latitude = setOfCoordinates[0],
                         Longitude = setOfCoordinates[1]
                     });
                     orderNumber++;
-                    idOfNeighborhoodborderMarker++;
+                    totalRowCount++;
                 }
+                idOfNeighborhoodborderMarker++;
             }
             repository.Save(neighborhoodBorderMarkers);
         }

@@ -3,15 +3,15 @@
     <head>
         <title>Charlotte Hackathon - Team Dubmen</title>
         <link href="@Url.Content("~/Content/css/bootstrap.min.css")" rel="stylesheet" media="screen">
+        <link href="@Url.Content("~/Content/css/select2.css")" rel="stylesheet">
+        <link href="@Url.Content("~/Styles/hackathon.css")" rel="stylesheet">
         @RenderSection("styles", required: false)
-        <style>
-            body {
-                padding-top: 41px;
-            }
-        </style>
         <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.0.0.js")"></script>
         <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.js")"></script>
         <script type="text/javascript" src="@Url.Content("~/Scripts/d3.v3.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/select2.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/spin.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/hackathon.js")"></script>
         @RenderSection("scripts", required: false)
     </head>
     <body>
@@ -28,7 +28,7 @@
                 <ul class="nav">
                   <li><a href="@Url.Content("~")">Home</a></li>
                   <li><a href="@Url.Content("~/SalesPerHousehold")">Sales Per Household</a></li>
-                  <li><a href="#contact">Contact</a></li>
+                  <li><a href="@Url.Content("~/PurchasesByTime")">Purchases By Time</a></li>
                 </ul>
               </div><!--/.nav-collapse -->
             </div>
@@ -36,6 +36,7 @@
         </div>
         <div class="row-fluid">
             <div class="span12">
+                <div class="container">
                 @RenderBody()
                 <p>
                     <!--[if lte IE 8]><span style="filter: FlipH; -ms-filter: "FlipH"; display: inline-block;"><![endif]-->

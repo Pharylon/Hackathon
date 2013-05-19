@@ -21,6 +21,7 @@ namespace Hackathon.Presentation.Controllers
                 .Where(t => t.description == description)
                 .GroupBy(t => t.Household)
                 .Select(th => th.Sum(t => t.sales))
+                .Where(s => s >0)
                 .OrderBy(t => t);
             int householdNumber = 0;
             var householdSales = new List<Tuple<int, decimal>>();
