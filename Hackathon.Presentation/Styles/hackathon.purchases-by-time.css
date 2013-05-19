@@ -1,0 +1,17 @@
+﻿
+#graph {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: steelblue;
+  fill: steelblue;
+  opacity: .3; 
+}

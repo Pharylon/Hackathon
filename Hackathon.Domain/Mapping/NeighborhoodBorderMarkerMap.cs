@@ -12,7 +12,7 @@ namespace Hackathon.Domain.Mapping
         public NeighborhoodBorderMarkerMap()
         {
             Table("dbo.NeighborhoodBorderMarker");
-            Id(x => x.Id);
+            Id(x => x.Id).GeneratedBy.Assigned();
             Map(x => x.NeighborhoodId);
             Map(x => x.OrderId);
             Map(x => x.Latitude);

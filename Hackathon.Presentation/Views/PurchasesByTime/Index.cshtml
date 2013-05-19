@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@section styles{
+    <link href="@Url.Content("~/Styles/hackathon.purchases-by-time.css")" rel="stylesheet" media="screen">
+}
+
+<h2>Purchases By Time</h2>
+<div class="container">
+    <div class="well">
+        <input type="hidden" id="filter-selector" />
+        <input id="filter-choice-selector" />
+        <button class="btn btn-success">
+            <i class="icon-plus icon-white"></i> Add Filter
+        </button>
+
+    </div>
+</div>
+<div id="graph"></div>
+<script type="text/javascript" src="@Url.Content("~/Scripts/hackathon.purchases-by-time.js")"></script>

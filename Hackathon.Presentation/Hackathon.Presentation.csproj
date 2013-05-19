@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="Controllers\HackathonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PurchasesByTimeController.cs" />
     <Compile Include="Controllers\SalesPerHouseholdController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -124,16 +125,28 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\select2.css" />
     <Content Include="Content\img\glyphicons-halflings-white.png" />
     <Content Include="Content\img\glyphicons-halflings.png" />
+    <Content Include="Content\img\select2-spinner.gif" />
+    <Content Include="Content\img\select2.png" />
+    <Content Include="Content\img\select2x2.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\img\Thumbs.db" />
+    <Content Include="Scripts\hackathon.js" />
+    <Content Include="Scripts\hackathon.sales-per-household.js" />
     <None Include="Scripts\jquery-2.0.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\d3.v3.js" />
     <Content Include="Scripts\jquery-2.0.0.js" />
     <Content Include="Scripts\jquery-2.0.0.min.js" />
+    <Content Include="Scripts\hackathon.purchases-by-time.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Styles\hackathon.css" />
+    <Content Include="Styles\hackathon.purchases-by-time.css" />
+    <Content Include="Styles\hackathon.sales-per-household.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -146,6 +159,7 @@
     </Content>
     <Content Include="Scripts\jquery-2.0.0.min.map" />
     <Content Include="Views\SalesPerHousehold\Index.cshtml" />
+    <Content Include="Views\PurchasesByTime\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

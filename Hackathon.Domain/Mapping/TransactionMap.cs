@@ -15,6 +15,7 @@ namespace Hackathon.Domain.Mapping
             Map(x => x.sales);
             Map(x => x.description);
             Map(x => x.Household);
+            Map(x => x.dateTime);
         }
 
     }
