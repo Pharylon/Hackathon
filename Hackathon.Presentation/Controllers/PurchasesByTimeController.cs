@@ -28,5 +28,16 @@ namespace Hackathon.Presentation.Controllers
                 .OrderByDescending(pbt => pbt.Item2).ToList();
             return Json(purchasesByTime, JsonRequestBehavior.AllowGet);
         }
+        [HttpGet]
+        public JsonResult GetFilteredData()
+        {
+            List<Transaction> transactions = Repository.Get<Transaction>()
+                .Where(t => t.description == "Deli" || t.description == "Bakery")
+                .Take(2000).ToList();
+            var purchasesByTime = new List<Tuple<decimal, decimal>>();
+            purchasesByTime = transactions.Select(t => new Tuple<decimal, decimal>(t.sales, ((decimal)t.dateTime.Hour) + (((decimal)t.dateTime.Minute) / 60)))
+                .OrderByDescending(pbt => pbt.Item2).ToList();
+            return Json(purchasesByTime, JsonRequestBehavior.AllowGet);
+        }
     }
 }

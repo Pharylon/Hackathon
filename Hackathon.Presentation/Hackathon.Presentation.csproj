@@ -123,6 +123,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\css\bootstrap-tag.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\select2.css" />
@@ -133,6 +134,7 @@
     <Content Include="Content\img\select2x2.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\img\Thumbs.db" />
+    <Content Include="Scripts\bootstrap-tag.js" />
     <Content Include="Scripts\hackathon.js" />
     <Content Include="Scripts\hackathon.sales-per-household.js" />
     <None Include="Scripts\jquery-2.0.0.intellisense.js" />
@@ -160,6 +162,7 @@
     <Content Include="Scripts\jquery-2.0.0.min.map" />
     <Content Include="Views\SalesPerHousehold\Index.cshtml" />
     <Content Include="Views\PurchasesByTime\Index.cshtml" />
+    <Content Include="Views\PurchasesByTime\Graph.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
