@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>fluentjson.net</id>
+    <version>0.2.2</version>
+    <title>FluentJson.NET</title>
+    <authors>Paul Tyng</authors>
+    <owners>Paul Tyng</owners>
+    <licenseUrl>https://raw.github.com/paultyng/FluentJson.NET/master/license.txt</licenseUrl>
+    <projectUrl>http://github.com/paultyng/FluentJson.NET</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Fluent JSON library for building Knockout view models (or any other JSON object) built on top of JSON.NET.</description>
+    <releaseNotes>Added Knockout.ToViewModel, Changed to SemVer versioning.</releaseNotes>
+    <copyright>Copyright 2011</copyright>
+    <language />
+    <tags>Knockout Json.NET Json Knockoutjs</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="4.0.5" />
+    </dependencies>
+  </metadata>
+</package>

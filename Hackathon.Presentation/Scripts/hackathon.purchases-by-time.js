@@ -97,6 +97,8 @@ var filterData = [
   { id: 'description', text: 'Purchase Category', locked: true}
   , { id: 'store', text: 'Store'}
   , { id: 'income', text: 'Household Income' }
+  , { id: 'outlaymin', text: 'Outlay Less Than' }
+  , { id: 'outlaymax', text: 'Outlay More Than' }
 ];
 var descriptionData = [
   { id: 'bakery', text: 'Bakery' }
@@ -119,6 +121,14 @@ var incomeData = [
   , { id: 'mt70000', text: 'More Than 70,000' }
   , { id: 'mt10000', text: 'More Than 100,000' }
 ];
+
+var outlayData = [
+    { id: '1', text: '.1' }
+  , { id: '2', text: '.2' }
+  , { id: '3', text: '.3' }
+  , { id: '4', text: '.4' }
+  , { id: '5', text: '.5' }
+]
  
 function InitializeFilterSelector()
 {
@@ -140,6 +150,8 @@ function InitializeFilterSelector()
                     SetChoiceSelector(descriptionData);
                 else if ($("#filter-selector").val() == 'income')
                     SetChoiceSelector(incomeData);
+                else if ($("#filter-selector").val() == 'outlaymin' || 'outlaymax')
+                    SetChoiceSelector(outlayData);
             });
     SetChoiceSelector(descriptionData);
 }
@@ -156,13 +168,13 @@ function SetChoiceSelector(data)
 }
 
 function addFilter() {
-    var filterCategory = $("#filter-selector").val();
-    var filterChoice = $("#filter-choice-selector").val();
+    var filtercategory = $("#filter-selector").val();
+    var filterchoice = $("#filter-choice-selector").val();
     var filterDescription = $("#filter-selector option:selected").text() + ": " + $("#filter-choice-selector option:selected").text();
     var filterTag = $("<span>", {
             "class": "tag",
-            "data-filterCategory": filterCategory,
-            "data-filterChoice": filterChoice,
+            "data-filtercategory": filtercategory,
+            "data-filterchoice": filterchoice,
             text: filterDescription
     }).append($("<button>", { "class": "close", text: x }).on("click", function(e){$(e.currentTarget).parent().remove()}));
     $("#filters").append(filterTag);
@@ -171,15 +183,17 @@ function addFilter() {
 function getFilterData() {
     var filters = [];
     $("#filters").children("span").each(function (index, element) {
-        var filterCategory = element.data("filterCategory");
-        var filterChoice = element.data("filterChoice");
-        var filter = new { "filterCategory": filterCategory, "filterChoice": filterChoice }
+        var filtercategory = $(element).data("filtercategory");
+        var filterchoice = $(element).data("filterchoice");
+        var filter = { "filtercategory": filtercategory, "filterchoice": filterchoice }
+        filters.push(filter);
     });
+    return filters;
 }
 function  executeFiltering()
 {
     var url = "PurchasesByTime/GetFilteredData";
-    data = getFilterData();
+    data = "filters=" + JSON.stringify(getFilterData());
         $("#graph").html("");
         svg = d3.select("#graph").append("svg")
             .attr("width", width + margin.left + margin.right)
