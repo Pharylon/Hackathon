@@ -67,5 +67,18 @@ namespace Hackathon.Domain
             new SchemaExport(config)
               .Create(false, true);
         }
+        public void Save<T>(IEnumerable<T> objects)
+        {
+            var list = objects.ToList();
+            for(int i=0;i<list.Count;i++)
+            {
+                _Session.Save(list[i]);
+              if(i % 20 == 0)
+              {
+                _Session.Flush();
+                _Session.Clear();
+              }
+            }
+        }
     }
 }

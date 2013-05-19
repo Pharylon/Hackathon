@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Hackathon.Domain
 {
-    class NeighborhoodBorderMarker
+    public class NeighborhoodBorderMarker
     {
         public virtual int Id{ get ; set; }
-        public virtual int Latitude { get; set; }
-        public virtual int Longitude { get; set; }
+        public virtual int NeighborhoodId { get; set; }
+        public virtual int OrderId { get; set; }
+        public virtual float Latitude { get; set; }
+        public virtual float Longitude { get; set; }
     }
 }
