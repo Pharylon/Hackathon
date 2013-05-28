@@ -13,5 +13,6 @@ namespace Hackathon.Domain
         public virtual string description { get; set; }
         public virtual int Household { get; set; }
         public virtual DateTime dateTime { get; set; }
+        public virtual int store { get; set; }
     }
 }

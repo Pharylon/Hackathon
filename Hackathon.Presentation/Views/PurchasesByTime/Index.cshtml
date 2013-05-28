@@ -8,13 +8,15 @@
 <h2>Purchases By Time</h2>
 <div class="container">
     <div class="well">
-        <input type="hidden" id="filter-selector" />
-        <input id="filter-choice-selector" />
-        <button class="btn btn-success">
+        <select id="filter-selector"></select>
+        <select id="filter-choice-selector"></select>
+        <button class="btn btn-success" id="addFilter">
             <i class="icon-plus icon-white"></i> Add Filter
         </button>
-
+        <div id="filters"></div>
+        <button id="execute-button" class="btn btn-primary pull-right"><i class="icon-white icon-forward"></i> Execute</button>
+        <div class="clearfix"></div>
     </div>
 </div>
-<div id="graph"></div>
+<div id="graph" data-purchasesOverTime="@ViewBag.data"></div>
 <script type="text/javascript" src="@Url.Content("~/Scripts/hackathon.purchases-by-time.js")"></script>

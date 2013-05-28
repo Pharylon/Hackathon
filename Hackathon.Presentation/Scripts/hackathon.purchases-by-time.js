@@ -27,11 +27,8 @@ var svg = d3.select("#graph").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-
-//var parseDate = d3.time.format("%d-%b-%y").parse;
-
-d3.json("PurchasesByTime/GetData", function(error, data) {
+d3.json("PurchasesByTime/GetData", function (error, data) { buildGraph(error, data) });
+function buildGraph(error,data){
   data.forEach(function(d) {
     d.Item1 = +d.Item1;
     d.Item2 = +d.Item2;
@@ -92,7 +89,7 @@ d3.json("PurchasesByTime/GetData", function(error, data) {
       .style("text-anchor", "end")
       .text(function(d) { return d; });
 
-});
+};
 
 //selet 2
 
@@ -100,6 +97,8 @@ var filterData = [
   { id: 'description', text: 'Purchase Category', locked: true}
   , { id: 'store', text: 'Store'}
   , { id: 'income', text: 'Household Income' }
+  , { id: 'outlaymin', text: 'Outlay Less Than' }
+  , { id: 'outlaymax', text: 'Outlay More Than' }
 ];
 var descriptionData = [
   { id: 'bakery', text: 'Bakery' }
@@ -122,25 +121,115 @@ var incomeData = [
   , { id: 'mt70000', text: 'More Than 70,000' }
   , { id: 'mt10000', text: 'More Than 100,000' }
 ];
- 
-$(document).ready(function () {
-    $('#filter-selector').select2({
-        placeholder: "Select a Filter",
-        minimumResultsForSearch: 10,
-        data: filterData
-    });
-    $('#filter-choice-selector').select2({
-        minimumResultsForSearch: 10,
-    });
-    $('#filter-selector').on("change", function (data) {
-        if (data.val == 'store')
-            $('#filter-choice-selector').removeClass('select2-offscreen').select2('data', {data: storeData})
-        else if (data.val == 'description')
-            $('#filter-choice-selector').removeClass('select2-offscreen').select2('data', { data: descriptionData })
-        else if(data.val == 'income')
-            $('#filter-choice-selector').select2('data', { data: incomeData })
-    });
-});
 
-//change {"val":"1","added":{"id":1,"text":"bug"},"removed":{"id":0,"text":"story"}}
-//.select2("enable", false)
+var outlayData = [
+    { id: '1', text: '.1' }
+  , { id: '2', text: '.2' }
+  , { id: '3', text: '.3' }
+  , { id: '4', text: '.4' }
+  , { id: '5', text: '.5' }
+  , { id: '6', text: '.6' }
+  , { id: '7', text: '.7' }
+  , { id: '8', text: '.8' }
+  
+];
+ 
+function InitializeFilterSelector()
+{
+    $("#filter-selector").empty();
+    for (var i = 0; i < filterData.length;i++)
+    {
+        $("#filter-selector").append($("<option>",
+            {
+                "value": filterData[i].id,
+                text: filterData[i].text
+            }));
+    }
+    $("#filter-selector")
+            .on("change", function (data) {
+                if ($("#filter-selector").val() == 'store') {
+                    SetChoiceSelector(storeData);
+                }
+                else if ($("#filter-selector").val() == 'description')
+                    SetChoiceSelector(descriptionData);
+                else if ($("#filter-selector").val() == 'income')
+                    SetChoiceSelector(incomeData);
+                else if ($("#filter-selector").val() == 'outlaymin' || $("#filter-selector").val() == 'outlaymax')
+                    SetChoiceSelector(outlayData);
+            });
+    SetChoiceSelector(descriptionData);
+}
+function SetChoiceSelector(data)
+{
+    $("#filter-choice-selector").empty();
+    for (var i = 0; i < data.length; i++) {
+        $("#filter-choice-selector").append($("<option>",
+                {
+                    "value": data[i].id,
+                    text: data[i].text
+                }));
+    }
+}
+
+function addFilter() {
+    var filtercategory = $("#filter-selector").val();
+    var filterchoice = $("#filter-choice-selector").val();
+    var filterDescription = $("#filter-selector option:selected").text() + ": " + $("#filter-choice-selector option:selected").text();
+    var filterTag = $("<span>", {
+            "class": "tag",
+            "data-filtercategory": filtercategory,
+            "data-filterchoice": filterchoice,
+            text: filterDescription
+    }).append($("<button>", { "class": "close", text: x }).on("click", function(e){$(e.currentTarget).parent().remove()}));
+    $("#filters").append(filterTag);
+}
+
+function getFilterData() {
+    var filters = [];
+    $("#filters").children("span").each(function (index, element) {
+        var filtercategory = $(element).data("filtercategory");
+        var filterchoice = $(element).data("filterchoice");
+        var filter = { "filtercategory": filtercategory, "filterchoice": filterchoice }
+        filters.push(filter);
+    });
+    return filters;
+}
+function  executeFiltering()
+{
+    var url = "PurchasesByTime/GetFilteredData";
+    data = "filters=" + JSON.stringify(getFilterData());
+        $("#graph").html("");
+        svg = d3.select("#graph").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        $.get(url, data, function (data) {
+            var error = null;
+            buildGraph(error, data);
+        });
+    //d3.json(url, function (error, data) { buildGraph(error, data) });
+}
+
+$(document).ready(function () {
+
+    InitializeFilterSelector()
+    
+    $('#filter-selector').on("change", function (data) {
+        if (data.val == 'store'){
+            
+        }
+        else if (data.val == 'description')
+            $('#filter-choice-selector').select2('data', { data: descriptionData });
+        else if(data.val == 'income')
+            $('#filter-choice-selector').select2('data',incomeData)
+    });
+
+    $("#addFilter").on("click", function () {
+        addFilter();
+    });
+    $("#execute-button").on("click", function () {
+        executeFiltering();
+    });
+
+});

@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentJson">
+      <HintPath>..\packages\fluentjson.net.0.2.2\lib\net40\FluentJson.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -123,6 +126,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\css\bootstrap-tag.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\select2.css" />
@@ -133,6 +137,7 @@
     <Content Include="Content\img\select2x2.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\img\Thumbs.db" />
+    <Content Include="Scripts\bootstrap-tag.js" />
     <Content Include="Scripts\hackathon.js" />
     <Content Include="Scripts\hackathon.sales-per-household.js" />
     <None Include="Scripts\jquery-2.0.0.intellisense.js" />
@@ -160,6 +165,7 @@
     <Content Include="Scripts\jquery-2.0.0.min.map" />
     <Content Include="Views\SalesPerHousehold\Index.cshtml" />
     <Content Include="Views\PurchasesByTime\Index.cshtml" />
+    <Content Include="Views\PurchasesByTime\Graph.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
